@@ -7,18 +7,49 @@
 *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(135deg,#fff0f5,#ffe4ec);font-family:Georgia,serif;color:#71394f;text-align:center}
 main{width:min(100%,680px);padding:28px 22px;background:#fffafc;border:1px solid #f7cbd9;border-radius:26px;box-shadow:0 12px 40px #9c526322}
 h1{font-size:clamp(2rem,6vw,3rem);margin:8px 0;color:#bd527b}.sub{font-size:1.12rem}
-svg{width:min(70vw,300px);height:310px;overflow:visible;margin:8px auto;display:block}
-.petals{transform-origin:150px 112px;transition:transform .7s ease}.petal{fill:#f18ab0;stroke:#dc6795;stroke-width:2}.center{fill:#ffd36a}.stem{stroke:#5b9b65;stroke-width:9;stroke-linecap:round;fill:none}.leaf{fill:#7fbd80;stroke:#5b9b65;stroke-width:2}
+svg{width:min(78vw,330px);height:330px;overflow:visible;margin:8px auto;display:block}
+.stem{fill:none;stroke:#4f9a5e;stroke-width:9;stroke-linecap:round;stroke-dasharray:225;stroke-dashoffset:225;transition:stroke-dashoffset 1.1s ease}
+.leaf{fill:#78b978;stroke:#4f965b;stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.2);transition:opacity .55s ease,transform .65s ease}
+.bud{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.1);transition:opacity .5s ease,transform .6s ease}
+.open-petals{opacity:0;transform-box:view-box;transform-origin:150px 95px;transform:scale(.35);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.petal{fill:#f18ab0;stroke:#dc6795;stroke-width:2}.center{fill:#ffd36a;stroke:#eab84e;stroke-width:2}
+#flower.stage1 .stem{stroke-dashoffset:0}
+#flower.stage2 .stem{stroke-dashoffset:0}
+#flower.stage2 .leaf{opacity:1;transform:scale(1)}
+#flower.stage3 .stem,#flower.stage4 .stem,#flower.stage5 .stem{stroke-dashoffset:0}
+#flower.stage3 .leaf,#flower.stage4 .leaf,#flower.stage5 .leaf{opacity:1;transform:scale(1)}
+#flower.stage3 .bud{opacity:1;transform:scale(1)}
+#flower.stage4 .open-petals,#flower.stage5 .open-petals{opacity:1;transform:scale(.72)}
+#flower.stage4 .bud,#flower.stage5 .bud{opacity:0;transform:scale(.4)}
+#flower.stage5 .open-petals{transform:scale(1)}
 button{border:0;border-radius:30px;background:#d95f91;color:white;padding:13px 24px;font-size:1rem;cursor:pointer;margin:8px;box-shadow:0 4px 12px #d95f9144}button:disabled{opacity:.5;cursor:default}
 #phrase{min-height:36px;font-size:1.3rem;color:#bd527b;font-weight:bold}#progress{height:8px;background:#f7dce6;border-radius:9px;overflow:hidden;margin:14px auto;max-width:300px}#bar{height:100%;width:0;background:#d95f91;transition:width .4s}
 #final,#letter{display:none;line-height:1.7}#letter{margin-top:18px;text-align:left;background:#fff1f6;padding:22px;border-radius:18px;white-space:normal}#letter p{margin:0 0 14px}.heart{color:#d95f91}
 </style></head>
 <body><main>
 <h1>Para vos, mi Julieta ❤️</h1><p class="sub">Tengo algo hermoso para mostrarte, mi amor…</p>
-<svg viewBox="0 0 300 330" role="img" aria-label="Una flor que va creciendo">
-<path class="stem" d="M150 145 Q145 220 151 300"/><path class="leaf" d="M148 235 Q90 190 75 226 Q110 260 148 235Z"/><path class="leaf" d="M151 265 Q205 220 225 250 Q195 280 151 265Z"/>
-<g id="petals" class="petals" style="transform:scale(.12)">
-<ellipse class="petal" cx="150" cy="65" rx="28" ry="53"/><ellipse class="petal" cx="150" cy="65" rx="28" ry="53" transform="rotate(45 150 112)"/><ellipse class="petal" cx="150" cy="65" rx="28" ry="53" transform="rotate(90 150 112)"/><ellipse class="petal" cx="150" cy="65" rx="28" ry="53" transform="rotate(135 150 112)"/><circle class="center" cx="150" cy="112" r="27"/>
+<svg id="flower" viewBox="0 0 300 330" role="img" aria-label="Una flor que crece desde el tallo hasta abrir sus pétalos">
+<path class="stem" d="M150 300 C145 245 155 185 150 100"/>
+<path class="leaf" d="M149 235 C112 192 76 195 78 218 C84 246 119 252 149 235Z"/>
+<path class="leaf" d="M151 265 C188 222 224 225 222 248 C216 276 181 282 151 265Z"/>
+<g class="bud">
+<path d="M150 112 C119 100 125 65 150 48 C175 65 181 100 150 112Z" fill="#e978a2" stroke="#d95f91" stroke-width="2"/>
+<path d="M150 112 Q128 104 133 78 M150 112 Q172 104 167 78" fill="none" stroke="#c95182" stroke-width="3"/>
+</g>
+<g class="open-petals">
+<ellipse class="petal" cx="150" cy="52" rx="22" ry="44"/>
+<ellipse class="petal" cx="150" cy="52" rx="22" ry="44" transform="rotate(30 150 95)"/>
+<ellipse class="petal" cx="150" cy="52" rx="22" ry="44" transform="rotate(60 150 95)"/>
+<ellipse class="petal" cx="150" cy="52" rx="22" ry="44" transform="rotate(90 150 95)"/>
+<ellipse class="petal" cx="150" cy="52" rx="22" ry="44" transform="rotate(120 150 95)"/>
+<ellipse class="petal" cx="150" cy="52" rx="22" ry="44" transform="rotate(150 150 95)"/>
+<ellipse class="petal" cx="150" cy="52" rx="22" ry="44" transform="rotate(180 150 95)"/>
+<ellipse class="petal" cx="150" cy="52" rx="22" ry="44" transform="rotate(210 150 95)"/>
+<ellipse class="petal" cx="150" cy="52" rx="22" ry="44" transform="rotate(240 150 95)"/>
+<ellipse class="petal" cx="150" cy="52" rx="22" ry="44" transform="rotate(270 150 95)"/>
+<ellipse class="petal" cx="150" cy="52" rx="22" ry="44" transform="rotate(300 150 95)"/>
+<ellipse class="petal" cx="150" cy="52" rx="22" ry="44" transform="rotate(330 150 95)"/>
+<circle class="center" cx="150" cy="95" r="24"/>
 </g></svg>
 <div id="phrase">Tocá el botón y mirá cómo crece esta flor 🌷</div><div id="progress"><div id="bar"></div></div>
 <button id="grow">Hacer crecer la flor 🌸</button>
@@ -34,6 +65,6 @@ button{border:0;border-radius:30px;background:#d95f91;color:white;padding:13px 2
 <p><strong>TEEEE AMOOOOO! Sos mi mundo. ❤️</strong></p><p><strong>Te amo, Julieta. Sos el amor de mi vida. ❤️</strong></p></article>
 </main><script>
 const phrases=['Sos hermosa ❤️','Mi novia preciosa 💗','Mi bebé, mi princesa 🌷','Sos mi todo ✨','Te amo con todo mi corazón ❤️'];let step=0;
-document.getElementById('grow').addEventListener('click',()=>{if(step>=5)return;step++;document.getElementById('petals').style.transform='scale('+(0.12+step*.176)+')';document.getElementById('phrase').textContent=phrases[step-1];document.getElementById('bar').style.width=(step*20)+'%';if(step===5){document.getElementById('grow').hidden=true;document.getElementById('final').style.display='block';}});
+document.getElementById('grow').addEventListener('click',()=>{if(step>=5)return;step++;document.getElementById('flower').className.baseVal='stage'+step;document.getElementById('phrase').textContent=phrases[step-1];document.getElementById('bar').style.width=(step*20)+'%';if(step===5){document.getElementById('grow').hidden=true;document.getElementById('final').style.display='block';}});
 document.getElementById('open').addEventListener('click',()=>{document.getElementById('letter').style.display='block';document.getElementById('open').hidden=true;});
 </script></body></html>
