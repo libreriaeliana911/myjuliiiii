@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Para vos, mi Julieta ❤️</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(135deg,#fff0f5,#ffe4ec);font-family:Georgia,serif;color:#71394f;text-align:center}
+main{width:min(100%,680px);padding:28px 22px;background:#fffafc;border:1px solid #f7cbd9;border-radius:26px;box-shadow:0 12px 40px #9c526322}
+h1{font-size:clamp(2rem,6vw,3rem);margin:8px 0;color:#bd527b}.sub{font-size:1.12rem}
+svg{width:min(70vw,300px);height:310px;overflow:visible;margin:8px auto;display:block}
+.petals{transform-origin:150px 112px;transition:transform .7s ease}.petal{fill:#f18ab0;stroke:#dc6795;stroke-width:2}.center{fill:#ffd36a}.stem{stroke:#5b9b65;stroke-width:9;stroke-linecap:round;fill:none}.leaf{fill:#7fbd80;stroke:#5b9b65;stroke-width:2}
+button{border:0;border-radius:30px;background:#d95f91;color:white;padding:13px 24px;font-size:1rem;cursor:pointer;margin:8px;box-shadow:0 4px 12px #d95f9144}button:disabled{opacity:.5;cursor:default}
+#phrase{min-height:36px;font-size:1.3rem;color:#bd527b;font-weight:bold}#progress{height:8px;background:#f7dce6;border-radius:9px;overflow:hidden;margin:14px auto;max-width:300px}#bar{height:100%;width:0;background:#d95f91;transition:width .4s}
+#final,#letter{display:none;line-height:1.7}#letter{margin-top:18px;text-align:left;background:#fff1f6;padding:22px;border-radius:18px;white-space:normal}#letter p{margin:0 0 14px}.heart{color:#d95f91}
+</style></head>
+<body><main>
+<h1>Para vos, mi Julieta ❤️</h1><p class="sub">Tengo algo hermoso para mostrarte, mi amor…</p>
+<svg viewBox="0 0 300 330" role="img" aria-label="Una flor que va creciendo">
+<path class="stem" d="M150 145 Q145 220 151 300"/><path class="leaf" d="M148 235 Q90 190 75 226 Q110 260 148 235Z"/><path class="leaf" d="M151 265 Q205 220 225 250 Q195 280 151 265Z"/>
+<g id="petals" class="petals" style="transform:scale(.12)">
+<ellipse class="petal" cx="150" cy="65" rx="28" ry="53"/><ellipse class="petal" cx="150" cy="65" rx="28" ry="53" transform="rotate(45 150 112)"/><ellipse class="petal" cx="150" cy="65" rx="28" ry="53" transform="rotate(90 150 112)"/><ellipse class="petal" cx="150" cy="65" rx="28" ry="53" transform="rotate(135 150 112)"/><circle class="center" cx="150" cy="112" r="27"/>
+</g></svg>
+<div id="phrase">Tocá el botón y mirá cómo crece esta flor 🌷</div><div id="progress"><div id="bar"></div></div>
+<button id="grow">Hacer crecer la flor 🌸</button>
+<section id="final"><h2>Yo veo a Jesús en vos. ❤️</h2><p>Estar con vos es lo más lindo que me dio.</p><p>Te amo, Julieta, sos el amor de mi vida. 💗</p><button id="open">Abrir mi carta 💌</button></section>
+<article id="letter"><h2>💌 Para vos, mi Julieta ❤️</h2>
+<p>Te amo mi amor, sos mi todo. Gracias por ser mi novia y por estar conmigo.</p>
+<p>Perdón por cada tontera mía, por cada momento que te hago pasar y por las veces que capaz te hago mal.</p>
+<p>Cuando yo te digo que no quiero que estés mal, es cierto, aunque a veces no lo parezca. Yo siempre priorizo que estés bien, porque verte mal es lo que menos quiero y lo que más me pone mal a mí.</p>
+<p>Quiero que sepas que te amo muchísimo y que lo que menos quiero es verte mal.</p>
+<p>Quiero cumplir sueños junto a vos, hacer un montón de cosas juntos, compartir mi vida con vos y algún día casarme. Quiero que seas vos, quiero que sigamos juntos y que podamos cumplir todo lo que soñamos.</p>
+<p>Quiero que seas vos la madre de mis hijos, la mujer con la que quiero formar una familia. Te amo bebé, sos mi todo, mi lugar seguro, en quien puedo confiar y poder descansar con solo escuchar tu voz.</p>
+<p>Anhelo y espero los días en los que vamos a estar juntos y también esos días en los que estemos casados, bebé hermosa.</p>
+<p><strong>TEEEE AMOOOOO! Sos mi mundo. ❤️</strong></p><p><strong>Te amo, Julieta. Sos el amor de mi vida. ❤️</strong></p></article>
+</main><script>
+const phrases=['Sos hermosa ❤️','Mi novia preciosa 💗','Mi bebé, mi princesa 🌷','Sos mi todo ✨','Te amo con todo mi corazón ❤️'];let step=0;
+document.getElementById('grow').addEventListener('click',()=>{if(step>=5)return;step++;document.getElementById('petals').style.transform='scale('+(0.12+step*.176)+')';document.getElementById('phrase').textContent=phrases[step-1];document.getElementById('bar').style.width=(step*20)+'%';if(step===5){document.getElementById('grow').hidden=true;document.getElementById('final').style.display='block';}});
+document.getElementById('open').addEventListener('click',()=>{document.getElementById('letter').style.display='block';document.getElementById('open').hidden=true;});
+</script></body></html>
